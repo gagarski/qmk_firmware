@@ -15,6 +15,7 @@
  */
 #include QMK_KEYBOARD_H
 #include <string.h>
+#include "print.h"
 
 bool is_alt_tab_active = false;
 uint16_t alt_tab_timer = 0;
@@ -44,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 //------------ SUPER ALTTAB ---------------
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {               
+    switch (keycode) {
         case ALT_TAB:
             if (record->event.pressed) {
                 if (!is_alt_tab_active) {
@@ -61,7 +62,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-void matrix_scan_user(void) {     
+void matrix_scan_user(void) {
+    uprintf("%x", default_layer_state);
+    uprintf("%x", layer_state);
     if (is_alt_tab_active) {
         if (timer_elapsed(alt_tab_timer) > 1000) {
             unregister_code(KC_LALT);
