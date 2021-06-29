@@ -564,3 +564,20 @@ void do_blink(void) {
         stop_blink();
     }
 }
+
+void rgb_matrix_indicators_ind_bl(void) {
+    do_blink();
+    handle_indicators();
+    handle_backlight();
+}
+
+void eeconfig_init_ind_bl(void) {
+    reset_ind_and_bl_settings();
+    persist_ind_settings();
+    persist_bl_settings();
+}
+
+void post_init_ind_bl(void) {
+    read_ind_settings();
+    read_bl_settings();
+}

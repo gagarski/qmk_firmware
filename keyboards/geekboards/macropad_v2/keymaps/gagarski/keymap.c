@@ -25,11 +25,6 @@
 #include "reset.h"
 
 
-#define DUMMY LAYOUT_ortho_2x4(\
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,\
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS\
-)
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [L_BASIC] = BASIC_LAYER,
     [L_IDEA] = IDEA_LAYER,
@@ -71,19 +66,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void rgb_matrix_indicators_user(void) {
-    do_blink();
-    handle_indicators();
-    handle_backlight();
+    rgb_matrix_indicators_ind_bl();
 }
 
 void eeconfig_init_user(void) {
-    set_single_persistent_default_layer(0);
-    reset_ind_and_bl_settings();
-    persist_ind_settings();
-    persist_bl_settings();
+    eeconfig_init_layers();
+    eeconfig_init_ind_bl();
 }
 
 void keyboard_post_init_user(void) {
-    read_ind_settings();
-    read_bl_settings();
+    post_init_ind_bl();
 }

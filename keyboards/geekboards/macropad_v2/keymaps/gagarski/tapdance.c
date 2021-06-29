@@ -4,6 +4,7 @@
 #include "indication.h"
 #include "layers.h"
 #include "reset.h"
+#include "print.h"
 
 bool hold_registered = false;
 

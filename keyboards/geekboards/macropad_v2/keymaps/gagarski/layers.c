@@ -45,3 +45,7 @@ bool current_layer_state_is(uint8_t num) {
 uint8_t get_active_layer(void) {
     return biton32(default_layer_state);
 }
+
+void eeconfig_init_layers(void) {
+    set_single_persistent_default_layer(0);
+}

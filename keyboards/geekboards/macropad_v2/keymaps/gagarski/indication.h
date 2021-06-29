@@ -35,3 +35,9 @@ void do_blink(void);
 void handle_indicators(void);
 
 void handle_backlight(void);
+
+void rgb_matrix_indicators_ind_bl(void);
+
+void eeconfig_init_ind_bl(void);
+
+void post_init_ind_bl(void);

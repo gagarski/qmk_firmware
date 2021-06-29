@@ -6,6 +6,7 @@
 #include "layers/rgb.h"
 #include "layers/ind_bl.h"
 #include "layers/layer_switch.h"
+#include "layers/dummy.h"
 
 void explicitly_set_default_layer(uint8_t layer);
 
@@ -20,6 +21,8 @@ uint8_t prev_layer(void);
 bool current_layer_state_is(uint8_t num);
 
 uint8_t get_active_layer(void);
+
+void eeconfig_init_layers(void);
 
 enum layers {
     // default

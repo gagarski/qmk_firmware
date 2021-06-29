@@ -1,11 +1,9 @@
 #include QMK_KEYBOARD_H
-#include "print.h"
 
 bool is_alt_tab_active = false;
 uint16_t alt_tab_timer = 0;
 
 bool alt_tab(uint16_t keycode, const keyrecord_t* record) {
-    print("alt-tab!\n");
     if (record->event.pressed) {
         is_alt_tab_active = true;
         register_code(KC_LALT);
@@ -18,7 +16,6 @@ bool alt_tab(uint16_t keycode, const keyrecord_t* record) {
 }
 
 bool alt_shift_tab(uint16_t keycode, const keyrecord_t* record) {
-    print("alt-shift-tab!\n");
     if (record->event.pressed) {
         is_alt_tab_active = true;
         register_code(KC_LALT);
