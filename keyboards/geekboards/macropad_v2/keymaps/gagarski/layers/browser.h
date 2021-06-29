@@ -1,0 +1,15 @@
+#pragma once
+#include QMK_KEYBOARD_H
+#include "kc.h"
+#include "tapdance.h"
+
+#define BROWSER_LAYER LAYOUT_ortho_2x4(\
+    TD(TD_LAYER_CTRL_L), LCTL(KC_T),   LCTL(LSFT(KC_T)), LCTL(KC_W),\
+    LCTL(LSFT(KC_TAB)),  LCTL(KC_TAB), LCTL(LSFT(KC_N)), LCTL(LSFT(KC_I))\
+)
+
+#define BROWSER_LAYER_TAP_DANCE_ACTIONS_PART \
+    [TD_LAYER_CTRL_L] = LAYERS_TD_TOP_LEVEL
+
+#define BROWSER_LAYER_LAYERS_TD_PART \
+    [TD_LAYER_CTRL_L] = KEYCODE_LAYERS_TD(LCTL(KC_L))

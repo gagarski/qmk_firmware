@@ -3,6 +3,8 @@
 
 #include "layers/basic.h"
 #include "layers/idea.h"
+#include "layers/idea_debug.h"
+#include "layers/browser.h"
 #include "layers/rgb.h"
 #include "layers/ind_bl.h"
 #include "layers/layer_switch.h"
@@ -28,10 +30,12 @@ enum layers {
     // default
     L_BASIC = 0,
     L_IDEA,
-    L_RGB = 7,
+    L_IDEA_DEBUG,
+    L_BROWSER = 6,
+    L_RGB,
     // non-default
-    L_IND = 8,
-    L_LAYER_SWITCH = 9
+    L_IND,
+    L_LAYER_SWITCH
 };
 
 #define N_DEFAULT_LAYERS 8

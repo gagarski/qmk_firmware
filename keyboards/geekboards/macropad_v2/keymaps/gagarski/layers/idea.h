@@ -6,8 +6,8 @@
 void alt_f1_1(uint16_t tap);
 
 #define IDEA_LAYER LAYOUT_ortho_2x4(\
-    TD(TD_LAYER_ALT_F1_1), LSFT(KC_F6), KC_F9,       LCTL(KC_F2),\
-    KC_F8,                 KC_F7,       LSFT(KC_F8), LALT(LSFT(KC_9))\
+    TD(TD_LAYER_ALT_F1_1), LCTL(KC_B),     LCTL(LALT(KC_B)), LCTL(KC_U),\
+    LALT(KC_INS),          LALT(KC_ENTER), LCTL(KC_SPACE),   LSFT(KC_F6)\
 )
 
 #define IDEA_LAYER_TAP_DANCE_ACTIONS_PART \

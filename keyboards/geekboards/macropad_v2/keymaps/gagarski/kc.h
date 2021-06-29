@@ -8,6 +8,8 @@
 #include "kc/tapdance.h"
 #include "kc/layers/basic.h"
 #include "kc/layers/idea.h"
+#include "kc/layers/idea_debug.h"
+#include "kc/layers/browser.h"
 #include "kc/layers/rgb.h"
 #include "kc/layers/ind_bl.h"
 #include "kc/layers/layer_switch.h"
