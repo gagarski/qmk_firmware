@@ -4,6 +4,8 @@
 #include "kc.h"
 #include "tapdance.h"
 
+#define L_IDEA_DEBUG 2
+
 #define IDEA_DEBUG_LAYER LAYOUT_ortho_2x4(\
     TD(TD_LAYER_ALT_F8), LALT(LSFT(KC_F7)), KC_F9,       LCTL(KC_F2),\
     KC_F8,               KC_F7,             LSFT(KC_F8), LALT(LSFT(KC_9))\

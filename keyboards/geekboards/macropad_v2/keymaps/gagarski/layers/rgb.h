@@ -5,12 +5,7 @@
 #include "kc.h"
 #include "tapdance.h"
 
-
-void do_rgb_mod_rev(uint16_t tap);
-
-void tap_dance_rgb_to_ind_finished(qk_tap_dance_state_t *state, void *user_data);
-void tap_dance_rgb_to_ind_reset(qk_tap_dance_state_t *state, void *user_data);
-
+#define L_RGB 7
 
 #define RGB_LAYER LAYOUT_ortho_2x4(\
     TD(TD_LAYER_RGB_MOD),          RGB_VAI, RGB_HUI, RGB_SPI,\
@@ -23,3 +18,9 @@ void tap_dance_rgb_to_ind_reset(qk_tap_dance_state_t *state, void *user_data);
 
 #define RGB_LAYER_LAYERS_TD_PART \
     [TD_LAYER_RGB_MOD] = FUN_LAYERS_TD(do_rgb_mod_rev)
+
+
+void do_rgb_mod_rev(uint16_t tap);
+
+void tap_dance_rgb_to_ind_finished(qk_tap_dance_state_t *state, void *user_data);
+void tap_dance_rgb_to_ind_reset(qk_tap_dance_state_t *state, void *user_data);

@@ -6,6 +6,8 @@
 #include "kc.h"
 #include "tapdance.h"
 
+#define L_BASIC 0
+
 #define BASIC_LAYER LAYOUT_ortho_2x4(\
         TD(TD_LAYER_ALT_SHIFT), LCTL(KC_W),        LALT(KC_F4),   KC_AUDIO_VOL_UP,\
         FKC(FKC_ALT_SHIFT_TAB), FKC(FKC_ALT_TAB),  KC_AUDIO_MUTE, KC_AUDIO_VOL_DOWN)

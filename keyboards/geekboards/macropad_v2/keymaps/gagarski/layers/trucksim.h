@@ -5,6 +5,8 @@
 #include "kc.h"
 #include "tapdance.h"
 
+#define L_TRUCKSIM 4
+
 #define TRUCKSIM_LAYER LAYOUT_ortho_2x4(\
     TD(TD_LAYER_U), KC_RBRACKET, KC_KP_4, KC_KP_6,\
     KC_Y,           KC_LBRACKET, KC_KP_1, KC_KP_3\

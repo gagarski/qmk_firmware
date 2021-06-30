@@ -5,17 +5,7 @@
 #include "kc.h"
 #include "fkc.h"
 
-bool do_next_ind_mode(uint16_t keycode, const keyrecord_t* record);
-
-bool do_next_bl_mode(uint16_t keycode, const keyrecord_t* record);
-
-bool do_inc_ind_brightness(uint16_t keycode, const keyrecord_t* record);
-
-bool do_dec_ind_brightness(uint16_t keycode, const keyrecord_t* record);
-
-bool do_inc_bl_brightness(uint16_t keycode, const keyrecord_t* record);
-
-bool do_dec_bl_brightness(uint16_t keycode, const keyrecord_t* record);
+#define L_IND_BL 8
 
 #define IND_BL_LAYER LAYOUT_ortho_2x4(\
     KC_TRNS, FKC(FKC_NEXT_IND_MODE), FKC(FKC_INC_IND_BRIGHTNESS), FKC(FKC_INC_BL_BRIGHTNESS),\
@@ -29,3 +19,16 @@ bool do_dec_bl_brightness(uint16_t keycode, const keyrecord_t* record);
     [FKC_DEC_IND_BRIGHTNESS] = do_dec_ind_brightness,\
     [FKC_INC_BL_BRIGHTNESS] = do_inc_bl_brightness,\
     [FKC_DEC_BL_BRIGHTNESS] = do_dec_bl_brightness
+
+
+bool do_next_ind_mode(uint16_t keycode, const keyrecord_t* record);
+
+bool do_next_bl_mode(uint16_t keycode, const keyrecord_t* record);
+
+bool do_inc_ind_brightness(uint16_t keycode, const keyrecord_t* record);
+
+bool do_dec_ind_brightness(uint16_t keycode, const keyrecord_t* record);
+
+bool do_inc_bl_brightness(uint16_t keycode, const keyrecord_t* record);
+
+bool do_dec_bl_brightness(uint16_t keycode, const keyrecord_t* record);

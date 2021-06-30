@@ -5,6 +5,8 @@
 #include "kc.h"
 #include "tapdance.h"
 
+#define L_BROWSER 6
+
 #define BROWSER_LAYER LAYOUT_ortho_2x4(\
     TD(TD_LAYER_CTRL_L), LCTL(KC_T),   LCTL(LSFT(KC_T)), LCTL(KC_W),\
     LCTL(LSFT(KC_TAB)),  LCTL(KC_TAB), LCTL(LSFT(KC_N)), LCTL(LSFT(KC_I))\

@@ -5,6 +5,8 @@
 #include "fkc.h"
 #include "kc.h"
 
+#define L_LAYER_SWITCH 9
+
 #define LAYER_SWITCH_LAYER LAYOUT_ortho_2x4(\
         KC_TRNS,     FKC(FKC_L1), FKC(FKC_L2), FKC(FKC_L3),\
         FKC(FKC_L4), FKC(FKC_L5), FKC(FKC_L6), FKC(FKC_L7)\

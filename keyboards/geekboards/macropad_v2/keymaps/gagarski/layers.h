@@ -28,19 +28,4 @@ uint8_t get_active_layer(void);
 
 void eeconfig_init_layers(void);
 
-enum layers {
-    // default
-    L_BASIC = 0,
-    L_IDEA,
-    L_IDEA_DEBUG,
-    L_MACROS,
-    L_TRUCKSIM ,
-    L_TRUCKSIM_BRAKES,
-    L_BROWSER,
-    L_RGB,
-    // non-default
-    L_IND,
-    L_LAYER_SWITCH
-};
-
 #define N_DEFAULT_LAYERS 8
