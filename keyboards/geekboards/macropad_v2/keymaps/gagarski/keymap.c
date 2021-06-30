@@ -14,15 +14,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
-#include <string.h>
 
-#include "macro.h"
-#include "keymap.h"
-#include "indication.h"
-#include "tapdance.h"
 #include "indication.h"
 #include "layers.h"
+#include "macro.h"
 #include "reset.h"
+#include "tapdance.h"
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

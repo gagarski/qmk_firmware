@@ -1,6 +1,7 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
+
 #include "kc.h"
 
 #define N_FKC 32

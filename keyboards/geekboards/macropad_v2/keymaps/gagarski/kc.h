@@ -1,4 +1,5 @@
 #pragma once
+
 #include QMK_KEYBOARD_H
 
 #define KC_SAFE_RANGE SAFE_RANGE

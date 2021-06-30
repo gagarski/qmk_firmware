@@ -1,7 +1,9 @@
 #pragma once
+
 #include QMK_KEYBOARD_H
-#include "kc.h"
+
 #include "fkc.h"
+#include "kc.h"
 
 #define LAYER_SWITCH_LAYER LAYOUT_ortho_2x4(\
         KC_TRNS,     FKC(FKC_L1), FKC(FKC_L2), FKC(FKC_L3),\

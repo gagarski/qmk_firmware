@@ -11,7 +11,6 @@
 #include "layers/rgb.h"
 #include "layers/ind_bl.h"
 #include "layers/layer_switch.h"
-#include "layers/dummy.h"
 
 void explicitly_set_default_layer(uint8_t layer);
 

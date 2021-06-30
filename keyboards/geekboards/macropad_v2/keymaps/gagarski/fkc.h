@@ -1,6 +1,7 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
+
 #include "kc.h"
 
 #define FKC(n) (FKC_BASE + n)

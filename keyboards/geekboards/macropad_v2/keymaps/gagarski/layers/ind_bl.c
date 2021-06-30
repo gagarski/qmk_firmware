@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+
 #include "indication.h"
 
 bool do_next_ind_mode(uint16_t keycode, const keyrecord_t* record) {
@@ -9,7 +10,6 @@ bool do_next_ind_mode(uint16_t keycode, const keyrecord_t* record) {
         return false;
     }
 }
-
 
 bool do_next_bl_mode(uint16_t keycode, const keyrecord_t* record) {
     if (record->event.pressed) {

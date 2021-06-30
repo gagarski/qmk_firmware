@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+
 #include "layers.h"
 
 void do_rgb_mod_rev(uint16_t tap) {

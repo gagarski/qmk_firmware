@@ -1,8 +1,9 @@
 #include QMK_KEYBOARD_H
 
+#include "eeprom.h"
+
 #include "indication.h"
 #include "layers.h"
-#include "eeprom.h"
 #include "macro.h"
 #include "reset.h"
 
