@@ -8,7 +8,6 @@ bool to_layer(uint16_t keycode, const keyrecord_t* record) {
         explicitly_set_default_layer(keycode - FKC(FKC_L0));
         start_blink(true, true);
         return true;
-    } else {
-        return false;
     }
+    return false;
 }

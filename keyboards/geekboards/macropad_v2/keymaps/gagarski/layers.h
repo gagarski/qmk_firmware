@@ -4,6 +4,9 @@
 #include "layers/basic.h"
 #include "layers/idea.h"
 #include "layers/idea_debug.h"
+#include "layers/macros.h"
+#include "layers/trucksim.h"
+#include "layers/trucksim_brakes.h"
 #include "layers/browser.h"
 #include "layers/rgb.h"
 #include "layers/ind_bl.h"
@@ -31,7 +34,10 @@ enum layers {
     L_BASIC = 0,
     L_IDEA,
     L_IDEA_DEBUG,
-    L_BROWSER = 6,
+    L_MACROS,
+    L_TRUCKSIM ,
+    L_TRUCKSIM_BRAKES,
+    L_BROWSER,
     L_RGB,
     // non-default
     L_IND,

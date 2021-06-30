@@ -4,7 +4,7 @@
 #    error "Please do not include this file directly"
 #endif
 
-enum fkcs {
+enum fkcs_layer_switch {
     // FKC_Lx are expected to be sequencial
     FKC_L0 = FKC_SAFE_RANGE,
     FKC_L1,
