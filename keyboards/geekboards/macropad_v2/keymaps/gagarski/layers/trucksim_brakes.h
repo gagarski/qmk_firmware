@@ -14,8 +14,8 @@ void tap_dance_j_h_n_reset(qk_tap_dance_state_t *state, void *user_data);
 
 
 #define TRUCKSIM_BRAKES_LAYER LAYOUT_ortho_2x4(\
-    TD(TD_LAYER_SPACE), TD(TD_F_O),   KC_A, KC_W,\
-    KC_C,               TD(TD_J_H_N), KC_D, KC_S\
+    TD(TD_LAYER_SPACE), TD(TD_F_O),   KC_D, KC_W,\
+    KC_C,               TD(TD_J_H_N), KC_A, KC_S\
 )
 
 #define TRUCKSIM_BRAKES_LAYER_TAP_DANCE_ACTIONS_PART \
