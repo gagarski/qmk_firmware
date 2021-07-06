@@ -5,8 +5,12 @@
 #endif
 
 enum fkcs_macros {
-    // FKC_Lx are expected to be sequencial
-    FKC_MVN_CLEAN_PACKAGE = FKC_SAFE_RANGE,
+    FKC_NDASH = FKC_SAFE_RANGE,
+    FKC_LAQUO,
+    FKC_RAQUO,
+    FKC_LDQUO,
+    FKC_RDQUO,
+    FKC_MVN_CLEAN_PACKAGE,
     FKC_MVN_CLEAN_PACKAGE_WHATEVER,
     _FKC_NEW_SAFE_RANGE_MACROS
 };
