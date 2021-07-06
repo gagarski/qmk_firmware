@@ -11,6 +11,9 @@
 #include "layers/rgb.h"
 #include "layers/ind_bl.h"
 #include "layers/layer_switch.h"
+#include "layers/os.h"
+
+#define N_DEFAULT_LAYERS 8
 
 void explicitly_set_default_layer(uint8_t layer);
 
@@ -28,4 +31,4 @@ uint8_t get_active_layer(void);
 
 void eeconfig_init_layers(void);
 
-#define N_DEFAULT_LAYERS 8
+bool is_layer_active(uint8_t layer_num);

@@ -12,11 +12,11 @@ void tap_dance_with_layers_finished(qk_tap_dance_state_t *state, void *user_data
     if (!state->interrupted && state->pressed) {
         hold_registered = true;
         if (state->count == 1) {
+            start_blink(true, true);
             layer_on(L_LAYER_SWITCH);
         } else if (state->count == 2) {
-            layer_on(L_LAYER_SWITCH);
-        } else if (state->count == 3) {
             start_blink(true, true);
+            layer_on(L_LAYER_SWITCH);
         } else if (state->count == 4) {
             request_eeprom_reset();
         } else if (state->count == 5) {

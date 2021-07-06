@@ -49,3 +49,7 @@ uint8_t get_active_layer(void) {
 void eeconfig_init_layers(void) {
     set_single_persistent_default_layer(0);
 }
+
+bool is_layer_active(uint8_t layer_num) {
+    return (layer_state >> layer_num) & 0x1;
+}

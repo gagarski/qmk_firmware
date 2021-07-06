@@ -2,9 +2,11 @@
 
 #include "eeprom.h"
 
+#include "eeprom_addr.h"
 #include "indication.h"
 #include "layers.h"
 #include "macro.h"
+#include "os.h"
 #include "reset.h"
 
 enum ind_modes {
@@ -49,8 +51,8 @@ const int N_IND_MODES_SAFE = IND_TRANSPARENT - IND_FIRST_GUARD - 1;
 const int N_BL_MODES = BL_LAST_GUARD - BL_FIRST_GUARD - 1;
 const int N_BL_MODES_SAFE = BL_TRANSPARENT - BL_FIRST_GUARD - 1;
 
-uint8_t* const IND_SETTINGS_ADDR = (uint8_t*) EECONFIG_SIZE;
-uint8_t* const BL_SETTINGS_ADDR = (uint8_t*) (EECONFIG_SIZE + 1);
+// uint8_t* const IND_SETTINGS_ADDR = (uint8_t*) EECONFIG_SIZE;
+// uint8_t* const BL_SETTINGS_ADDR = (uint8_t*) (EECONFIG_SIZE + 1);
 
 const int MAX_BRIGHTNESS = 15;
 const int MIN_BRIGHNTESS = 0;
@@ -92,6 +94,52 @@ const rgb_t PROGMEM WHITE = {.r = 0xff, .g = 0xff, .b = 0xff};
 const rgb_t PROGMEM BLACK = {.r = 0x0, .g = 0x0, .b = 0x0};
 const rgb_t PROGMEM RED = {.r = 0xff, .g = 0x0, .b = 0x0};
 const rgb_t PROGMEM ORANGE = {.r = 0xff, .g = 0x80, .b = 0x0};
+
+const rgb_t PROGMEM IND_WIN_10[N_KEY_LEDS] = {
+    BLACK,
+    {.r = 0xf3, .g = 0x53, .b = 0x25},
+    {.r = 0x81, .g = 0xbc, .b = 0x06},
+    BLACK,
+    BLACK,
+    {.r = 0x05, .g = 0xa6, .b = 0xf0},
+    {.r = 0xff, .g = 0xba, .b = 0x08},
+    BLACK
+};
+
+const rgb_t PROGMEM IND_MACOS[N_KEY_LEDS] = {
+    WHITE,
+    WHITE,
+    WHITE,
+    WHITE,
+    WHITE,
+    WHITE,
+    WHITE,
+    WHITE
+};
+
+const rgb_t PROGMEM IND_LINUX[N_KEY_LEDS] = {
+    {.r = 0xff, .g = 0xba, .b = 0x08},
+    {.r = 0xff, .g = 0xba, .b = 0x08},
+    {.r = 0xff, .g = 0xba, .b = 0x08},
+    {.r = 0xff, .g = 0xba, .b = 0x08},
+    {.r = 0xff, .g = 0xba, .b = 0x08},
+    {.r = 0xff, .g = 0xba, .b = 0x08},
+    {.r = 0xff, .g = 0xba, .b = 0x08},
+    {.r = 0xff, .g = 0xba, .b = 0x08}
+};
+
+
+
+const rgb_t PROGMEM IND_WIN_7[] = {
+    BLACK,
+    {.r = 0xf3, .g = 0x53, .b = 0x25},
+    {.r = 0x81, .g = 0xbc, .b = 0x06},
+    BLACK,
+    BLACK,
+    BLACK,
+    {.r = 0xff, .g = 0xba, .b = 0x08},
+    BLACK
+};
 
 uint8_t ind_mode = 0;
 uint8_t ind_brightness = 15;
@@ -260,8 +308,6 @@ rgb_t get_adjusted_white(uint8_t brightness) {
     return get_adjusted_color(&WHITE, brightness);
 }
 
-
-
 void ind_color(void) {
     int layer = get_active_layer();
     rgb_t color = get_adjusted_color_for_layer(layer, ind_brightness);
@@ -400,12 +446,7 @@ void ind_reset_snake(void) {
     }
 }
 
-
-void handle_indicators(void) {
-    if (is_reset_requested() || is_eeprom_reset_requested()) {
-        ind_reset_snake();
-        return;
-    }
+void ind_show_layer(void) {
     switch (ind_mode) {
         case IND_COLOR:
             ind_color();
@@ -440,6 +481,43 @@ void handle_indicators(void) {
         case IND_FORCE_OFF:
             ind_force_off();
             break;
+    }
+}
+
+void ind_show_os(void) {
+    const rgb_t* ind_pattern;
+
+    switch(get_os()) {
+        case WINDOWS_10:
+            ind_pattern = IND_WIN_10;
+            break;
+        case MACOS:
+            ind_pattern = IND_MACOS;
+            break;
+        case LINUX:
+            ind_pattern = IND_LINUX;
+            break;
+        case WINDOWS_7:
+            ind_pattern = IND_WIN_7;
+            break;
+        default:
+            return;
+    }
+
+    for (int i = 0; i < N_KEY_LEDS; i++) {
+        uint8_t brightness = ind_brightness == 0 ? 1 : ind_brightness;
+        rgb_t color = get_adjusted_color(&(ind_pattern[i]), brightness);
+        rgb_matrix_set_color(KEY_LEDS[i], color.r, color.g, color.b);
+    }
+}
+
+void handle_indicators(void) {
+    if (is_reset_requested() || is_eeprom_reset_requested()) {
+        ind_reset_snake();
+    } else if (is_layer_active(L_OS)) {
+        ind_show_os();
+    } else {
+        ind_show_layer();
     }
 }
 
@@ -512,11 +590,7 @@ void bl_reset_snake(void) {
     }
 }
 
-void handle_backlight(void) {
-    if (is_reset_requested() || is_eeprom_reset_requested()) {
-        bl_reset_snake();
-        return;
-    }
+void bl_show_layer(void) {
     switch (bl_mode) {
         case BL_COLOR:
             bl_color();
@@ -533,6 +607,20 @@ void handle_backlight(void) {
         case BL_FORCE_OFF:
             bl_force_off();
             break;
+    }
+}
+
+void bl_show_os(void) {
+    bl_force_off();
+}
+
+void handle_backlight(void) {
+    if (is_reset_requested() || is_eeprom_reset_requested()) {
+        bl_reset_snake();
+    } else if (is_layer_active(L_OS)) {
+        bl_show_os();
+    } else {
+        bl_show_layer();
     }
 }
 

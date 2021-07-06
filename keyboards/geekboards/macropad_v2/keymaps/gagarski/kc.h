@@ -17,4 +17,5 @@
 #include "kc/layers/rgb.h"
 #include "kc/layers/ind_bl.h"
 #include "kc/layers/layer_switch.h"
+#include "kc/layers/os.h"
 #undef KC_H

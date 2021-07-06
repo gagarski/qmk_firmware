@@ -18,6 +18,7 @@
 #include "indication.h"
 #include "layers.h"
 #include "macro.h"
+#include "os.h"
 #include "reset.h"
 #include "tapdance.h"
 
@@ -32,7 +33,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [L_BROWSER] = BROWSER_LAYER,
     [L_RGB] = RGB_LAYER,
     [L_IND_BL] = IND_BL_LAYER,
-    [L_LAYER_SWITCH] = LAYER_SWITCH_LAYER
+    [L_LAYER_SWITCH] = LAYER_SWITCH_LAYER,
+    [L_OS] = OS_LAYER
 };
 
 /*const*/ qk_tap_dance_action_t tap_dance_actions[] = {
@@ -61,7 +63,8 @@ bool (* const PROGMEM FKCS[])(uint16_t keycode, const keyrecord_t* record) = {
     BASIC_LAYER_FKCS_PART,
     IND_BL_LAYER_FKCS_PART,
     MACROS_LAYER_FKCS_PART,
-    LAYER_SWITCH_LAYER_FKCS_PART
+    LAYER_SWITCH_LAYER_FKCS_PART,
+    OS_LAYER_FKCS_PART
 };
 
 void matrix_scan_user(void) {
@@ -80,8 +83,10 @@ void rgb_matrix_indicators_user(void) {
 void eeconfig_init_user(void) {
     eeconfig_init_layers();
     eeconfig_init_ind_bl();
+    eeconfig_init_os();
 }
 
 void keyboard_post_init_user(void) {
     post_init_ind_bl();
+    post_init_os();
 }

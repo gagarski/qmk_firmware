@@ -20,6 +20,6 @@
     [FKC_L4] = to_layer,\
     [FKC_L5] = to_layer,\
     [FKC_L6] = to_layer,\
-    [FKC_L7] = to_layer,
+    [FKC_L7] = to_layer
 
 bool to_layer(uint16_t keycode, const keyrecord_t* record);
