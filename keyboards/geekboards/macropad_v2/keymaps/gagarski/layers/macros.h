@@ -9,7 +9,7 @@
 
 #define MACROS_LAYER LAYOUT_ortho_2x4(\
     TD(TD_LAYER_MDASH),         FKC(FKC_NDASH),                      FKC(FKC_LAQUO), FKC(FKC_RAQUO),\
-    FKC(FKC_MVN_CLEAN_PACKAGE), FKC(FKC_MVN_CLEAN_PACKAGE_WHATEVER), FKC(FKC_LDQUO), FKC(FKC_RDQUO)\
+    FKC(FKC_MVN_CLEAN_PACKAGE), FKC(FKC_MVN_CLEAN_INSTALL_WHATEVER), FKC(FKC_LDQUO), FKC(FKC_RDQUO)\
 )
 
 #define MACROS_LAYER_TAP_DANCE_ACTIONS_PART \
@@ -25,12 +25,12 @@
     [FKC_LDQUO] = ldquo,\
     [FKC_RDQUO] = rdquo,\
     [FKC_MVN_CLEAN_PACKAGE] = mvn_clean_package,\
-    [FKC_MVN_CLEAN_PACKAGE_WHATEVER] = mvn_cleaan_package_whatever
+    [FKC_MVN_CLEAN_INSTALL_WHATEVER] = mvn_clean_install_whatever
 
 
 void tap_dance_mdash(uint16_t tap);
 bool mvn_clean_package(uint16_t keycode, const keyrecord_t* record);
-bool mvn_cleaan_package_whatever(uint16_t keycode, const keyrecord_t* record);
+bool mvn_clean_install_whatever(uint16_t keycode, const keyrecord_t* record);
 bool ndash(uint16_t keycode, const keyrecord_t* record);
 bool laquo(uint16_t keycode, const keyrecord_t* record);
 bool raquo(uint16_t keycode, const keyrecord_t* record);

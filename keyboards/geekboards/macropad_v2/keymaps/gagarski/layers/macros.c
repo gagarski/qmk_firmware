@@ -52,9 +52,9 @@ bool mvn_clean_package(uint16_t keycode, const keyrecord_t* record) {
 }
 
 
-bool mvn_cleaan_package_whatever(uint16_t keycode, const keyrecord_t* record) {
+bool mvn_clean_install_whatever(uint16_t keycode, const keyrecord_t* record) {
     if (record->event.pressed) {
-        SEND_STRING("mvn clean package -T2C -PdevBoot -DskipTests=true\n");
+        SEND_STRING("mvn clean install -T2C -PdevBoot -DskipTests=true\n");
     }
     return false;
 }
