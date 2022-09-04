@@ -16,7 +16,7 @@
     [TD_LAYER_MDASH] = LAYERS_TD_TOP_LEVEL
 
 #define MACROS_LAYER_LAYERS_TD_PART \
-    [TD_LAYER_MDASH] = FUN_LAYERS_TD(tap_dance_mdash)
+    [L_MACROS] = FUN_LAYERS_TD(tap_dance_mdash)
 
 #define MACROS_LAYER_FKCS_PART \
     [FKC_NDASH] = ndash,\

@@ -23,10 +23,12 @@ void tap_dance_with_layers_finished(qk_tap_dance_state_t *state, void *user_data
             request_reset();
         }
     } else {
-        layers_td_t td = LAYERS_TDS[state->keycode & 0xff];
+        layers_td_t td = LAYERS_TDS[get_active_layer()];
         td.on_tap(td.tap);
     }
 }
+
+
 
 void tap_dance_with_layers_reset(qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1 && hold_registered) {

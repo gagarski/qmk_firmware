@@ -16,6 +16,6 @@
     [TD_LAYER_ALT_F1_1] = LAYERS_TD_TOP_LEVEL
 
 #define IDEA_LAYER_LAYERS_TD_PART \
-    [TD_LAYER_ALT_F1_1] = FUN_LAYERS_TD(alt_f1_1)
+    [L_IDEA] = FUN_LAYERS_TD(alt_f1_1)
 
 void alt_f1_1(uint16_t tap);

@@ -24,4 +24,4 @@ void tap_dance_j_h_n_reset(qk_tap_dance_state_t *state, void *user_data);
     [TD_J_H_N] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, tap_dance_j_h_n_finished, tap_dance_j_h_n_reset)
 
 #define TRUCKSIM_BRAKES_LAYER_LAYERS_TD_PART \
-    [TD_LAYER_SPACE] = KEYCODE_LAYERS_TD(KC_SPACE)
+    [L_TRUCKSIM_BRAKES] = KEYCODE_LAYERS_TD(KC_SPACE)
