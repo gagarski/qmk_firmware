@@ -23,7 +23,8 @@ void tap_dance_with_layers_finished(qk_tap_dance_state_t *state, void *user_data
             request_reset();
         }
     } else {
-        layers_td_t td = LAYERS_TDS[get_active_layer()];
+        top_level_user_data_t* top_level_user_data = (top_level_user_data_t*) user_data;
+        layers_td_t td = LAYERS_TDS[top_level_user_data->td_kc];
         td.on_tap(td.tap);
     }
 }
