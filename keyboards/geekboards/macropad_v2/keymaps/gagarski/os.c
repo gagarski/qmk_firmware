@@ -4,6 +4,7 @@
 
 #include "eeprom_addr.h"
 #include "os.h"
+#include "eeconfig_user.h"
 
 
 const uint8_t DEFAULT_OS = (uint8_t) WINDOWS_10;
@@ -15,15 +16,15 @@ os_t get_os(void) {
 
 void set_os(os_t new_os) {
     os = new_os;
-    eeprom_update_byte(OS_SETTINGS_ADDR, os);
+    update_userconfig_byte(OS_SETTINGS_ADDR, os);
 }
 
 void eeconfig_init_os(void) {
     os = DEFAULT_OS;
-    eeprom_update_byte(OS_SETTINGS_ADDR, os);
+    update_userconfig_byte(OS_SETTINGS_ADDR, os);
 }
 
 void post_init_os(void) {
-    os = eeprom_read_byte(OS_SETTINGS_ADDR);
+    os = read_userconfig_byte(OS_SETTINGS_ADDR);
 }
 

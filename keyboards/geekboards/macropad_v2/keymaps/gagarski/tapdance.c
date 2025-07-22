@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
 #include "tapdance.h"
-#include "keymap.h"
 #include "indication.h"
 #include "reset.h"
 #include "layers.h"
@@ -8,7 +7,7 @@
 
 bool hold_registered = false;
 
-void tap_dance_with_layers_finished(qk_tap_dance_state_t *state, void *user_data) {
+void tap_dance_with_layers_finished(tap_dance_state_t *state, void *user_data) {
     if (!state->interrupted && state->pressed) {
         hold_registered = true;
         if (state->count == 1) {
@@ -31,7 +30,7 @@ void tap_dance_with_layers_finished(qk_tap_dance_state_t *state, void *user_data
 
 
 
-void tap_dance_with_layers_reset(qk_tap_dance_state_t *state, void *user_data) {
+void tap_dance_with_layers_reset(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1 && hold_registered) {
         layer_off(L_LAYER_SWITCH);
         reset_explicit_layer_handled();

@@ -22,5 +22,5 @@
 
 void do_rgb_mod_rev(uint16_t tap);
 
-void tap_dance_rgb_to_ind_finished(qk_tap_dance_state_t *state, void *user_data);
-void tap_dance_rgb_to_ind_reset(qk_tap_dance_state_t *state, void *user_data);
+void tap_dance_rgb_to_ind_finished(tap_dance_state_t *state, void *user_data);
+void tap_dance_rgb_to_ind_reset(tap_dance_state_t *state, void *user_data);

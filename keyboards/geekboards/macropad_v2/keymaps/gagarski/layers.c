@@ -1,7 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "macro.h"
 #include "layers.h"
-#include "keymap.h"
 
 bool explicit_layer_handled = false;
 

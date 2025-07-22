@@ -3,6 +3,7 @@ TAP_DANCE_ENABLE = yes
 UNICODE_ENABLE = yes
 
 # todo relative to where???
+SRC += eeconfig_user.c
 SRC += indication.c
 SRC += layers.c
 SRC += tapdance.c

@@ -20,10 +20,10 @@ bool alt_shift_tab(uint16_t keycode, const keyrecord_t* record) {
         is_alt_tab_active = true;
         register_code(KC_LALT);
         alt_tab_timer = timer_read();
-        register_code(KC_LSHIFT);
+        register_code(KC_LSFT);
         register_code(KC_TAB);
     } else {
-        unregister_code(KC_LSHIFT);
+        unregister_code(KC_LSFT);
         unregister_code(KC_TAB);
     }
     return true;

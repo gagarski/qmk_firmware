@@ -7,10 +7,10 @@
 
 #define L_TRUCKSIM_BRAKES 5
 
-void tap_dance_f_o_finished(qk_tap_dance_state_t *state, void *user_data);
-void tap_dance_f_o_reset(qk_tap_dance_state_t *state, void *user_data);
-void tap_dance_j_h_n_finished(qk_tap_dance_state_t *state, void *user_data);
-void tap_dance_j_h_n_reset(qk_tap_dance_state_t *state, void *user_data);
+void tap_dance_f_o_finished(tap_dance_state_t *state, void *user_data);
+void tap_dance_f_o_reset(tap_dance_state_t *state, void *user_data);
+void tap_dance_j_h_n_finished(tap_dance_state_t *state, void *user_data);
+void tap_dance_j_h_n_reset(tap_dance_state_t *state, void *user_data);
 
 
 #define TRUCKSIM_BRAKES_LAYER LAYOUT_ortho_2x4(\

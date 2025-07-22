@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#include "eeprom.h"
+#include "eeconfig_user.h"
 
 #include "eeprom_addr.h"
 #include "indication.h"
@@ -8,6 +8,7 @@
 #include "macro.h"
 #include "os.h"
 #include "reset.h"
+#include "quantum/color.h"
 
 enum ind_modes {
     IND_FIRST_GUARD = -1,
@@ -36,13 +37,6 @@ enum bl_modes {
     BL_FORCE_OFF,
     BL_LAST_GUARD
 };
-
-
-typedef struct rgb {
-    uint8_t r;
-    uint8_t g;
-    uint8_t b;
-} rgb_t;
 
 
 const int N_IND_MODES = IND_LAST_GUARD - IND_FIRST_GUARD - 1;
@@ -164,11 +158,11 @@ uint8_t settings_to_persist(uint8_t mode, uint8_t brightness) {
 }
 
 void persist_ind_settings(void) {
-    eeprom_update_byte(IND_SETTINGS_ADDR, settings_to_persist(ind_mode, ind_brightness));
+    update_userconfig_byte(IND_SETTINGS_ADDR, settings_to_persist(ind_mode, ind_brightness));
 }
 
 void persist_bl_settings(void) {
-    eeprom_update_byte(BL_SETTINGS_ADDR, settings_to_persist(bl_mode, bl_brightness));
+    update_userconfig_byte(BL_SETTINGS_ADDR, settings_to_persist(bl_mode, bl_brightness));
 }
 
 void read_settings(uint8_t from_eeprom, uint8_t* mode, uint8_t* brightness) {
@@ -177,11 +171,11 @@ void read_settings(uint8_t from_eeprom, uint8_t* mode, uint8_t* brightness) {
 }
 
 void read_ind_settings(void) {
-    read_settings(eeprom_read_byte(IND_SETTINGS_ADDR), &ind_mode, &ind_brightness);
+    read_settings(read_userconfig_byte(IND_SETTINGS_ADDR), &ind_mode, &ind_brightness);
 }
 
 void read_bl_settings(void) {
-    read_settings(eeprom_read_byte(BL_SETTINGS_ADDR), &bl_mode, &bl_brightness);
+    read_settings(read_userconfig_byte(BL_SETTINGS_ADDR), &bl_mode, &bl_brightness);
 }
 
 void change_mode(uint8_t* mode, bool rev, uint8_t min, uint8_t max) {

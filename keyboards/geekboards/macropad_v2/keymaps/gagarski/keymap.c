@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [L_OS] = OS_LAYER
 };
 
-/*const*/ qk_tap_dance_action_t tap_dance_actions[] = {
+/*const*/ tap_dance_action_t tap_dance_actions[] = {
     BASIC_LAYER_TAP_DANCE_ACTIONS_PART,
     IDEA_LAYER_TAP_DANCE_ACTIONS_PART,
     IDEA_DEBUG_LAYER_TAP_DANCE_ACTIONS_PART,
@@ -76,8 +76,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return handle_fkc(keycode, record);
 }
 
-void rgb_matrix_indicators_user(void) {
+bool rgb_matrix_indicators_user(void) {
     rgb_matrix_indicators_ind_bl();
+    return true;
 }
 
 void eeconfig_init_user(void) {

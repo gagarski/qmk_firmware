@@ -14,8 +14,8 @@ typedef struct top_level_user_data {
 
 extern const layers_td_t PROGMEM LAYERS_TDS[];
 
-void tap_dance_with_layers_finished(qk_tap_dance_state_t *state, void *user_data);
-void tap_dance_with_layers_reset(qk_tap_dance_state_t *state, void *user_data);
+void tap_dance_with_layers_finished(tap_dance_state_t *state, void *user_data);
+void tap_dance_with_layers_reset(tap_dance_state_t *state, void *user_data);
 
 #define KEYCODE_LAYERS_TD(keycode) {.on_tap = tap_code16, .tap = keycode}
 #define FUN_LAYERS_TD(fun) {.on_tap = fun, .tap = 0}
