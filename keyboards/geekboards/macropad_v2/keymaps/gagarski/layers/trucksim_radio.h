@@ -1,0 +1,20 @@
+#pragma once
+
+#include QMK_KEYBOARD_H
+
+#include "kc.h"
+#include "tapdance.h"
+
+#define L_TRUCKSIM_RADIO 4
+
+
+#define TRUCKSIM_RADIO_LAYER LAYOUT_ortho_2x4(\
+    TD(TD_LAYER_INS), KC_HOME, KC_INSERT,        KC_EQUAL,\
+    KC_PAGE_UP,           KC_END,     KC_PAGE_DOWN,        KC_MINUS\
+)
+
+#define TRUCKSIM_RADIO_LAYER_TAP_DANCE_ACTIONS_PART \
+    [TD_LAYER_INS] = LAYERS_TD_TOP_LEVEL(TD_LAYER_INS)
+
+#define TRUCKSIM_RADIO_LAYER_LAYERS_TD_PART \
+    [TD_LAYER_INS] = KEYCODE_LAYERS_TD(TD_LAYER_INS)

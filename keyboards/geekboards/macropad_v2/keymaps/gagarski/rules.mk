@@ -16,6 +16,7 @@ SRC += layers/idea.c
 SRC += layers/macros.c
 # SRC += layers/idea_debug.c # absent
 # SRC += layers/trucksim.c # absent
+# SRC += layers/truck_radio.c # absent
 # SRC += layers/trucksim_camera.c # absent
 # SRC += layers/trucksim_brakes.c # disabled
 SRC += layers/rgb.c
